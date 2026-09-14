@@ -1,0 +1,25 @@
+name: Vaporwave
+accent: '#ff71ce'
+cursor: '#ff71ce'
+background: '#150e26'
+foreground: '#f2e9ff'
+details: darker
+terminal_colors:
+  normal:
+    black: '#241838'
+    red: '#ff5c8a'
+    green: '#05ffa1'
+    yellow: '#fffb96'
+    blue: '#7b8cff'
+    magenta: '#ff71ce'
+    cyan: '#01cdfe'
+    white: '#d8cdea'
+  bright:
+    black: '#5a4a78'
+    red: '#ff85a6'
+    green: '#6affc4'
+    yellow: '#fffcc0'
+    blue: '#a3afff'
+    magenta: '#ff9ade'
+    cyan: '#6be3ff'
+    white: '#f2e9ff'

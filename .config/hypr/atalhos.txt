@@ -1,0 +1,39 @@
+󰘳 SUPER+F1            Esta colinha de atalhos
+󰀻 SUPER+Space         Abrir app (launcher)
+ SUPER+Enter         Terminal
+󰖟 SUPER+W             Navegador
+ SUPER+E             Arquivos
+󰅖 SUPER+Q             Fechar janela
+󰊓 SUPER+F             Tela cheia
+󰊓 SUPER+D             Maximizar (mantém a barra)
+ SUPER+ALT+Space     Janela flutuante / lado a lado
+ SUPER+J             Trocar divisão (horizontal ↔ vertical)
+ SUPER+Setas         Mudar foco entre janelas
+ SUPER+SHIFT+Setas   Mover janela
+󰍽 SUPER+Arrastar      Mover janela com o mouse (direito = redimensionar)
+ SUPER+CTRL+←/→      Workspace anterior / próximo
+ SUPER+CTRL+↓        Ir pra um workspace vazio
+ SUPER+CTRL+SHIFT+←/→  Levar janela pro workspace ao lado
+󰕰 SUPER+Tab           Alternar janelas (switcher)
+󰍡 SUPER+M             Gaveta do WhatsApp
+󰊻 SUPER+N             Gaveta do Teams
+ SUPER+'             Gaveta de terminal (tecla do lado do 1)
+ SUPER+S             Scratchpad (gaveta escondida)
+ SUPER+SHIFT+S       Mandar janela pro scratchpad
+ SUPER+V             Histórico da área de transferência
+ SUPER+.             Emojis
+󰍜 SUPER+B             Fixar / esconder a barra (ou encoste o mouse no topo)
+ SUPER+X             Central de controle (wifi, som, bluetooth)
+ SUPER+A             Notificações
+󰏘 SUPER+SHIFT+T       Escolher tema (Kurenai, Vaporwave, Tokyo Night…)
+󰏘 SUPER+CTRL+T        Pular pro próximo tema
+󰸉 SUPER+SHIFT+W       Escolher wallpaper
+󰸉 SUPER+ALT+W         Wallpaper aleatório
+ SUPER+Z             Configurações do Noctalia
+ SUPER+L             Bloquear tela
+󰐥 SUPER+ALT+C         Menu de sessão (sair, reiniciar, desligar)
+ Print               Print de uma área
+ SUPER+Print         Print da tela inteira
+ SUPER+P             Pegar cor da tela (copia o hex)
+ SUPER+ +/-          Zoom na tela
+ CTRL+SHIFT+Esc      btop (monitor do sistema)

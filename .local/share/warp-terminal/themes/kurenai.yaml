@@ -1,0 +1,25 @@
+name: Kurenai 紅
+accent: '#e8323c'
+cursor: '#e8323c'
+background: '#0e0a0b'
+foreground: '#eadfd3'
+details: darker
+terminal_colors:
+  normal:
+    black: '#1c1214'
+    red: '#e8323c'
+    green: '#8aa06a'
+    yellow: '#d4a24c'
+    blue: '#6f7fb0'
+    magenta: '#e06c8a'
+    cyan: '#6fae9e'
+    white: '#cbbfb3'
+  bright:
+    black: '#4a3a3c'
+    red: '#ff5a5f'
+    green: '#a9c08a'
+    yellow: '#f0c070'
+    blue: '#8e9dd0'
+    magenta: '#f59ab0'
+    cyan: '#8fcfbe'
+    white: '#f4e9dd'

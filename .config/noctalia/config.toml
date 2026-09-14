@@ -1,0 +1,272 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║  Noctalia — barra, launcher, tela de bloqueio, cores do sistema  ║
+# ║  Temas: SUPER+SHIFT+T  ou  `rice tema <nome>`                    ║
+# ╚══════════════════════════════════════════════════════════════════╝
+#
+# Dicas rápidas:
+#   • Salvou este arquivo? O Noctalia recarrega sozinho.
+#     Se não recarregar:  noctalia msg config-reload   (ou `rice reload`)
+#   • Ver TODAS as opções possíveis com o valor padrão:
+#       noctalia config export full | less
+#   • Checar se tem erro de digitação:  noctalia config validate
+#   • SUPER+Z abre as configurações gráficas. O que tu muda por lá vai pra
+#     ~/.local/state/noctalia/settings.toml e tem prioridade sobre este arquivo.
+
+[accessibility]
+ui_scale = 1.00              # tamanho geral da interface (tela 1366x768 → 1.0~1.1)
+
+# ─── SOM E NOTIFICAÇÕES ─────────────────────────────────────────────
+[audio]
+enable_sounds = true
+notification_sound = "/usr/share/noctalia/assets/sounds/notification.wav"   # pode trocar por qualquer .wav
+sound_volume = 0.6
+
+[notification]
+position = "top_right"       # top_right | top_left | bottom_right | top_center…
+# Não perturbe: SUPER+A abre as notificações
+
+# ─── GANCHOS (comandos em eventos do Noctalia) ─────────────────────
+[hooks]
+# ex.: started = [ "noctalia msg bar-hide" ]  → começa sem a barra
+started = []
+
+# ─── LOCALIZAÇÃO E CLIMA (widgets de clima) ────────────────────────
+[location]
+auto_locate = false
+address = "São Paulo, SP, Brasil"
+
+[weather]
+enabled = true
+unit = "celsius"
+refresh_minutes = 30
+
+# ─── LUZ AZUL (Night Light) ─────────────────────────────────────────
+# Esquenta as cores da tela do pôr ao nascer do sol (usa [location]).
+[nightlight]
+enabled = true
+temperature_day = 6500       # 6500 = cor normal
+temperature_night = 4000     # menor = mais amarelado (3000 fica bem quente)
+
+# ─── CANTOS QUENTES ─────────────────────────────────────────────────
+# Encoste o mouse no canto da tela. Ações: none | launcher | control_center |
+# window_switcher | command (usa o campo command)
+[hot_corners]
+enabled = true
+delay_ms = 250               # espera um pouquinho pra não disparar sem querer
+
+    [hot_corners.top_left]
+    action = "launcher"      # abrir apps
+
+    [hot_corners.top_right]
+    action = "control_center"   # wifi, som, bluetooth, notificações
+
+    [hot_corners.bottom_left]
+    action = "none"
+
+    [hot_corners.bottom_right]
+    action = "none"
+
+# ─── DOCK ───────────────────────────────────────────────────────────
+[dock]
+enabled = true
+position = "bottom"
+pinned = [ "google-chrome", "dev.warp.Warp", "org.kde.dolphin", "libreoffice-startcenter" ]   # nome do .desktop sem extensão
+launcher_position = "start"  # botão de apps no começo do dock
+icon_size = 40
+margin_edge = 8
+auto_hide = true             # some quando tem janela; encoste o mouse embaixo pra ver
+smart_auto_hide = true       # aparece sozinho em área de trabalho vazia
+reserve_space = false
+magnification = true
+magnification_scale = 1.35
+show_running = true
+show_dots = true
+border = "primary"
+border_width = 1.0
+
+# ─── BARRA ──────────────────────────────────────────────────────────
+[bar.default]
+# Barra escondida: aparece ao encostar o mouse no topo (e rapidinho ao trocar de workspace).
+# SUPER+B fixa na tela / volta a esconder.
+# Widgets em cada ponta. Nomes vêm das seções [widget.*] lá embaixo.
+start  = [ "launcher", "clock", "spacer_1", "group:g1" ]
+center = [ "workspaces" ]
+end    = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "session" ]
+
+position = "top"             # top | bottom | left | right
+auto_hide = true             # false = sempre visível
+reserve_space = false        # false = janelas ocupam o espaço da barra (ela aparece por cima)
+show_on_workspace_switch = true
+thickness = 26               # altura da barra (largura, se ficar na lateral)
+scale = 1.0
+# Barra "flutuante" descolada da borda, com cantos redondos e contorno neon
+margin_edge = 4              # distância da borda da tela onde a barra está
+margin_ends = 8              # distância das pontas (em cima/embaixo na vertical)
+radius = 12
+radius_top_left = 12
+radius_top_right = 12
+radius_bottom_left = 12
+radius_bottom_right = 12
+concave_edge_corners = false
+border = "primary"           # cor do contorno (primary = cor principal do tema)
+border_width = 1.0
+background_opacity = 0.88
+shadow = true
+
+    # Grupo com temperatura, GPU e RAM numa cápsula só
+    [[bar.default.capsule_group]]
+    border = ""
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "temp", "sysmon_2", "sysmon_3" ]
+    opacity = 1.0
+    padding = 6.0
+
+# ─── SHELL (comportamento geral) ────────────────────────────────────
+[shell]
+clipboard_image_action_command = "swash --stdin --name \"swash-$(date +'%Y-%m-%d_%H:%M:%S').png\""
+launch_apps_as_systemd_services = true
+polkit_agent = true
+settings_show_advanced = true
+date_format = "%A, %d de %B"
+corner_radius_scale = 1.0
+
+    # Tela de login: copia wallpaper e cores do tema sempre que mudarem
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.panel]
+    open_near_click_control_center = true
+    session_placement = "floating"
+    session_position = "center"
+
+    [shell.screenshot]
+    copy_to_clipboard = false
+    pipe_command = "swash --stdin --name \"swash-$(date +'%Y-%m-%d_%H:%M:%S').png\""
+    pipe_to_command = true
+    save_to_file = false
+
+    # Menu de sessão (SUPER+ALT+C). O número é a tecla de atalho dentro do menu.
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 3.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[system.monitor]
+gpu_poll_seconds = 2
+
+# ─── CORES ──────────────────────────────────────────────────────────
+[theme]
+mode = "dark"
+# Mais fácil: `rice tema <nome>` troca tudo junto (edita as linhas abaixo sozinho).
+# source = "builtin"   → paleta embutida (Tokyo-Night, Catppuccin, Dracula, Nord, Gruvbox, Kanagawa…)
+# source = "custom"    → arquivo em ~/.config/noctalia/palettes/<custom_palette>.json
+# source = "community" → paletas da comunidade (Garnet, Kanagawa Dragon, Rose Pine…)
+# source = "wallpaper" → gera a paleta a partir do papel de parede
+source = "custom"
+builtin = "Tokyo-Night"
+custom_palette = "Vaporwave"
+community_palette = "Garnet"
+wallpaper_scheme = "m3-tonal-spot"
+
+    # Apps que recebem as cores automaticamente
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "alacritty", "starship", "cava" ]
+
+# ─── WALLPAPER ──────────────────────────────────────────────────────
+[wallpaper]
+directory = "/home/feminari/Imagens/Wallpapers/vaporwave"
+fill_mode = "crop"
+transition = [ "wipe", "stripes", "honeycomb", "disc" ]
+transition_duration = 1200.0
+
+# ─── TELA DE BLOQUEIO (SUPER+L) ─────────────────────────────────────
+[lockscreen]
+wallpaper = "/home/feminari/Imagens/Wallpapers/vaporwave/estatua.jpg"
+blurred_desktop = false
+blur_intensity = 0.1
+tint_intensity = 0.2
+
+# ─── WIDGETS ────────────────────────────────────────────────────────
+[widget.clock]
+color = "secondary"
+format = "{:%H:%M  ·  %a %d/%m}"   # barra horizontal. strftime: %H hora, %M min, %a dia, %d/%m data
+vertical_format = "{:%H\n%M}"       # barra vertical (\n = quebra de linha)
+
+[widget.launcher]
+color = "primary"
+
+[widget.media]
+hide_when_no_media = true
+title_scroll = "on_hover"
+
+[widget.network]
+color = "secondary"
+
+[widget.notifications]
+color = "secondary"
+
+[widget.session]
+color = "error"
+
+[widget.spacer_1]
+type = "spacer"
+
+[widget.temp]
+show_value = false
+
+[widget.sysmon_2]
+glyph = "gpu-usage"
+show_value = false
+stat = "gpu_temp"
+type = "sysmon"
+
+[widget.sysmon_3]
+glyph = "cpu-2"
+stat = "ram_used"
+type = "sysmon"
+
+[widget.tray]
+capsule = true
+capsule_fill = "surface_variant"
+
+[widget.volume]
+color = "secondary"
+
+[widget.workspaces]
+active_pill_size = 2.5
+capsule = true
+capsule_fill = "surface_variant"
+inactive_pill_size = 1.0
+pill_scale = 0.80
+show_labels = false
