@@ -43,7 +43,7 @@ refresh_minutes = 30
 # ─── LUZ AZUL (Night Light) ─────────────────────────────────────────
 # Esquenta as cores da tela do pôr ao nascer do sol (usa [location]).
 [nightlight]
-enabled = true
+enabled = false
 temperature_day = 6500       # 6500 = cor normal
 temperature_night = 4000     # menor = mais amarelado (3000 fica bem quente)
 
