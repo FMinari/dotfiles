@@ -30,6 +30,8 @@ dots diff                   # ver as mudanças
 - **Fontes** (`~/.local/share/fonts/rice/`): Google Fonts: Yuji Syuku, Monoton, Orbitron
 - **Cursores** (`~/.local/share/icons/`): catppuccin/cursors v2.0.0, mocha red / pink / lavender
 - **Pacotes**: `sudo pacman -S --needed hyprpm cmake meson cava starship`
+- **Plugins** (depois dos pacotes):
+  `hyprpm update && hyprpm add https://github.com/sandwichfarm/hyprexpo && hyprpm add https://github.com/hyprwm/hyprland-plugins && hyprpm enable hyprexpo && hyprpm enable hyprfocus`
 
 ## Restaurar num PC novo
 

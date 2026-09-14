@@ -14,6 +14,7 @@
  SUPER+CTRL+←/→      Workspace anterior / próximo
  SUPER+CTRL+↓        Ir pra um workspace vazio
  SUPER+CTRL+SHIFT+←/→  Levar janela pro workspace ao lado
+󱂬 SUPER+G             Visão geral das áreas de trabalho (setas + Enter)
 󰕰 SUPER+Tab           Alternar janelas (switcher)
 󰍡 SUPER+M             Gaveta do WhatsApp
 󰊻 SUPER+N             Gaveta do Teams
