@@ -28,9 +28,27 @@ if [[ $(jq -r '.specialWorkspace.name' <<<"$mon") != "special:$nome" ]]; then
             | .address' |
     while read -r addr; do
         hyprctl dispatch "hl.dsp.window.resize({ x = $w, y = $h, relative = false, window = \"address:$addr\" })" >/dev/null
-        hyprctl dispatch "hl.dsp.window.center({ window = \"address:$addr\" })" >/dev/null
     done
 fi
 
 # se a gaveta já está visível, esconde; senão mostra
 hyprctl dispatch "hl.dsp.workspace.toggle_special(\"$nome\")" >/dev/null
+
+# Acabou de aparecer: centraliza no monitor onde ela está agora. Centralizar
+# escondida não serve — usa as coordenadas do monitor antigo e a janela aparece
+# atravessando as duas telas. O Chrome só aplica o resize depois que a janela
+# fica visível (~600ms), então espera o tamanho bater antes de centralizar.
+# (O move com x/y absoluto não serve: cai em lugar aleatório.)
+if [[ $(jq -r '.specialWorkspace.name' <<<"$mon") != "special:$nome" ]]; then
+    for _ in {1..15}; do
+        sleep 0.1
+        hyprctl clients -j | jq -e --arg re "$classe" --argjson w "$w" --argjson h "$h" '
+            all(.[] | select(.class | test($re));
+                ((.size[0] - $w) | fabs) <= 20 and ((.size[1] - $h) | fabs) <= 20)' >/dev/null && break
+    done
+    sleep 0.1
+    hyprctl clients -j | jq -r --arg re "$classe" '.[] | select(.class | test($re)) | .address' |
+    while read -r addr; do
+        hyprctl dispatch "hl.dsp.window.center({ window = \"address:$addr\" })" >/dev/null
+    done
+fi
