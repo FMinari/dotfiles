@@ -91,7 +91,7 @@ border_width = 1.0
 # Widgets em cada ponta. Nomes vêm das seções [widget.*] lá embaixo.
 start  = [ "launcher", "clock", "spacer_1", "group:g1" ]
 center = [ "workspaces" ]
-end    = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "session" ]
+end    = [ "media", "spacer_1", "tray", "notifications", "network", "volume", "battery", "session" ]
 
 position = "top"             # top | bottom | left | right
 auto_hide = true             # false = sempre visível
@@ -218,6 +218,12 @@ blur_intensity = 0.1
 tint_intensity = 0.2
 
 # ─── WIDGETS ────────────────────────────────────────────────────────
+[widget.battery]
+color = "secondary"
+display_mode = "glyph"         # none | glyph | graphic
+show_label = true             # mostra a porcentagem
+label_content = "percent"     # percent | time | rate
+
 [widget.clock]
 color = "secondary"
 format = "{:%H:%M  ·  %a %d/%m}"   # barra horizontal. strftime: %H hora, %M min, %a dia, %d/%m data
