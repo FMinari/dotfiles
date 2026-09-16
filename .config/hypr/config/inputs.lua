@@ -5,6 +5,9 @@ hl.config({
         kb_layout = "br",
         -- sensitivity = -0.25,
         accel_profile = "flat",
+        touchpad = {
+            natural_scroll = true, -- scroll invertido (estilo celular/Mac); false volta ao normal
+        },
     },
     -- Uncomment the section below to enable software cursors; this can help with cursor display or behavior issues
     -- cursor = {
