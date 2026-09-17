@@ -12,6 +12,8 @@ local GAVETAS = {
       cmd = "google-chrome-stable --app=https://web.whatsapp.com" },
     { nome = "teams",    tecla = "N",      classe_re = "^chrome-teams\\.cloud\\.microsoft__.*$",
       cmd = "google-chrome-stable --app=https://teams.cloud.microsoft" },
+    { nome = "outlook",  tecla = "O",      classe_re = "^chrome-outlook\\.cloud\\.microsoft__.*$",
+      cmd = "google-chrome-stable --app=https://outlook.cloud.microsoft/mail/" },
     { nome = "terminal", tecla = "code:49", -- tecla ' (do lado do 1)
       classe_re = "^gaveta-terminal$",
       cmd = "kitty --class gaveta-terminal" },

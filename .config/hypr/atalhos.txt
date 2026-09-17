@@ -18,9 +18,8 @@
 󰕰 SUPER+Tab           Alternar janelas (switcher)
 󰍡 SUPER+M             Gaveta do WhatsApp
 󰊻 SUPER+N             Gaveta do Teams
+󰇮 SUPER+O             Gaveta do Outlook
  SUPER+'             Gaveta de terminal (tecla do lado do 1)
- SUPER+S             Scratchpad (gaveta escondida)
- SUPER+SHIFT+S       Mandar janela pro scratchpad
  SUPER+V             Histórico da área de transferência
  SUPER+.             Emojis
 󰍜 SUPER+B             Fixar / esconder a barra (ou encoste o mouse no topo)
