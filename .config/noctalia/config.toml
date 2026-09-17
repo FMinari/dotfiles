@@ -24,6 +24,13 @@ sound_volume = 0.6
 [notification]
 position = "top_right"       # top_right | top_left | bottom_right | top_center…
 # Não perturbe: SUPER+A abre as notificações
+filter_order = ["chrome"]
+
+# WhatsApp/Teams (gavetas do Chrome) pedem notificação permanente → some em 5 s
+[notification.filter.chrome]
+enabled           = true
+match             = "google-chrome"
+override_duration = 5000   # ms
 
 # ─── GANCHOS (comandos em eventos do Noctalia) ─────────────────────
 [hooks]
