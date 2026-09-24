@@ -14,6 +14,10 @@ local GAVETAS = {
       cmd = "google-chrome-stable --app=https://teams.cloud.microsoft" },
     { nome = "outlook",  tecla = "O",      classe_re = "^chrome-outlook\\.cloud\\.microsoft__.*$",
       cmd = "google-chrome-stable --app=https://outlook.cloud.microsoft/mail/" },
+    { nome = "spotify",  tecla = "K",      classe_re = "^[Ss]potify$",
+      cmd = "spotify-launcher" },
+    { nome = "notas",    tecla = "S",      classe_re = "^gaveta-notas$",
+      cmd = "kitty --class gaveta-notas -e micro /home/feminari/Documentos/notas.md" },
     { nome = "terminal", tecla = "code:49", -- tecla ' (do lado do 1)
       classe_re = "^gaveta-terminal$",
       cmd = "kitty --class gaveta-terminal" },
