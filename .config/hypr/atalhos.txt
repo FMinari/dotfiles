@@ -9,9 +9,11 @@
  SUPER+ALT+Space     Janela flutuante / lado a lado
  SUPER+J             Trocar divisão (horizontal ↔ vertical)
  SUPER+Setas         Mudar foco entre janelas
- SUPER+SHIFT+Setas   Mover janela
+ SUPER+SHIFT+Setas   Mover janela no layout (só troca de tela se não houver janela do lado)
+󰍺 SUPER+ALT+←/→      Jogar janela pro outro monitor (sempre atravessa)
+󰍹 SUPER+SHIFT+1/2/3  Jogar janela pro monitor 1 (notebook) / 2 (externo)
 󰍽 SUPER+Arrastar      Mover janela com o mouse (direito = redimensionar)
- SUPER+CTRL+←/→      Workspace anterior / próximo
+ SUPER+CTRL+←/→      Workspace anterior / próximo (do monitor onde está o mouse)
  SUPER+CTRL+↓        Ir pra um workspace vazio
  SUPER+CTRL+SHIFT+←/→  Levar janela pro workspace ao lado
 󱂬 SUPER+G             Visão geral das áreas de trabalho (setas + Enter)
@@ -19,6 +21,8 @@
 󰍡 SUPER+M             Gaveta do WhatsApp
 󰊻 SUPER+N             Gaveta do Teams
 󰇮 SUPER+O             Gaveta do Outlook
+󰏫 SUPER+S             Gaveta de notas (~/Documentos/notas.md)
+󰓇 SUPER+K             Gaveta do Spotify
  SUPER+'             Gaveta de terminal (tecla do lado do 1)
  SUPER+V             Histórico da área de transferência
  SUPER+.             Emojis
@@ -35,5 +39,6 @@
  Print               Print de uma área
  SUPER+Print         Print da tela inteira
  SUPER+P             Pegar cor da tela (copia o hex)
+󰍹 SUPER+SHIFT+P       Mini-janela: encolhe a janela e prende no canto (de novo desfaz)
  SUPER+ +/-          Zoom na tela
  CTRL+SHIFT+Esc      btop (monitor do sistema)
