@@ -34,11 +34,21 @@ hl.bind(mainMod .. " + SHIFT + Up",                   hl.dsp.window.move({ direc
 hl.bind(mainMod .. " + SHIFT + Right",                hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + Left",                 hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + SHIFT + Down",                 hl.dsp.window.move({ direction = "d" }))
-hl.bind(mainMod .. " + SHIFT + " .. digitCode(1),     hl.dsp.window.move({ monitor = MONITOR1 }))
-hl.bind(mainMod .. " + SHIFT + " .. digitCode(2),     hl.dsp.window.move({ monitor = MONITOR2 }))
-hl.bind(mainMod .. " + SHIFT + " .. digitCode(3),     hl.dsp.window.move({ monitor = MONITOR3 }))
+-- Mandar a janela pra um monitor específico. Só cria o atalho se a variável
+-- estiver preenchida em variables.lua: com string vazia o dispatcher devolve
+-- "Invalid monitor / monitor doesn't exist" e o atalho morre calado.
+for i, mon in ipairs({ MONITOR1, MONITOR2, MONITOR3 }) do
+    if mon ~= nil and mon ~= "" then
+        hl.bind(mainMod .. " + SHIFT + " .. digitCode(i), hl.dsp.window.move({ monitor = mon }))
+    end
+end
 hl.bind(mainMod .. " + SHIFT + mouse_up",             hl.dsp.window.move({ monitor   = "-1" }))
 hl.bind(mainMod .. " + SHIFT + mouse_down",           hl.dsp.window.move({ monitor   = "+1" }))
+-- Atravessar pro outro monitor pelo teclado. As setas com SHIFT movem dentro do
+-- layout e só cruzam de tela quando não há janela naquela direção; estas aqui
+-- cruzam sempre, igual a roda do mouse acima.
+hl.bind(mainMod .. " + ALT + Left",                   hl.dsp.window.move({ monitor   = "-1" }))
+hl.bind(mainMod .. " + ALT + Right",                  hl.dsp.window.move({ monitor   = "+1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Right",      hl.dsp.window.move({ workspace = "m+1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Left",       hl.dsp.window.move({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + mouse_up",   hl.dsp.window.move({ workspace = "m-1" }))
@@ -119,6 +129,8 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/scripts/brilho.
 
 -- Screen Capture
 hl.bind(mainMod .. " + P",     hl.dsp.exec_cmd("hyprpicker -a -n"))
+-- Mini-janela (PiP caseiro): encolhe a janela focada e prende num canto
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/mini.sh"))
 hl.bind("Print",               hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
 
