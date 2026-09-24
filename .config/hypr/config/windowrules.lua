@@ -94,6 +94,16 @@ local modalMatches = {
 }
 for _, m in ipairs(modalMatches) do hl.window_rule({ match = m, float = true }) end
 
+-- Diálogo de arquivo (salvar/abrir) não pode passar da tela: o GTK guarda o
+-- último tamanho em dconf (/org/gtk/settings/file-chooser/window-size) e numa
+-- tela de 768px ele já chegou a 933 de altura, escondendo o campo do nome e o
+-- botão Salvar. O teto abaixo vale mesmo que o dconf volte a crescer.
+hl.window_rule({
+    match    = { class = "^([Xx]dg-desktop-portal-gtk)$" },
+    max_size = { "monitor_w*0.92", "monitor_h*0.88" },
+    center   = true,
+})
+
 -- Ignore maximize requests from all apps. You'll probably like this.
 hl.window_rule({
     name  = "suppress-maximize-events",
