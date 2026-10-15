@@ -75,7 +75,7 @@ delay_ms = 250               # espera um pouquinho pra não disparar sem querer
 
 # ─── DOCK ───────────────────────────────────────────────────────────
 [dock]
-enabled = true
+enabled = false            # dock desligado a pedido (2026-10-15); true volta
 position = "bottom"
 pinned = [ "google-chrome", "dev.warp.Warp", "org.kde.dolphin", "libreoffice-startcenter" ]   # nome do .desktop sem extensão
 launcher_position = "start"  # botão de apps no começo do dock
@@ -202,7 +202,7 @@ mode = "dark"
 # source = "wallpaper" → gera a paleta a partir do papel de parede
 source = "custom"
 builtin = "Tokyo-Night"
-custom_palette = "Vaporwave"
+custom_palette = "Kurenai"
 community_palette = "Garnet"
 wallpaper_scheme = "m3-tonal-spot"
 
@@ -212,14 +212,14 @@ wallpaper_scheme = "m3-tonal-spot"
 
 # ─── WALLPAPER ──────────────────────────────────────────────────────
 [wallpaper]
-directory = "/home/feminari/Imagens/Wallpapers/vaporwave"
+directory = "/home/feminari/Imagens/Wallpapers/kurenai"
 fill_mode = "crop"
 transition = [ "wipe", "stripes", "honeycomb", "disc" ]
 transition_duration = 1200.0
 
 # ─── TELA DE BLOQUEIO (SUPER+L) ─────────────────────────────────────
 [lockscreen]
-wallpaper = "/home/feminari/Imagens/Wallpapers/vaporwave/estatua.jpg"
+wallpaper = "/home/feminari/Imagens/Wallpapers/kurenai/lua-vermelha.jpg"
 blurred_desktop = false
 blur_intensity = 0.1
 tint_intensity = 0.2
